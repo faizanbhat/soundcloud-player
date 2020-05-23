@@ -1,0 +1,117 @@
+{
+  "name": "soundcloud-player",
+  "version": "1.0.0",
+  "description": "A React component for loading and interacting with soundcloud widgets",
+  "main": "lib/SoundCloudPlayer.js",
+  "scripts": {
+    "clean": "rimraf lib coverage",
+    "lint": "standard --verbose | snazzy",
+    "lint:fix": "standard --fix",
+    "test": "cross-env NODE_ENV=test ava",
+    "test:coverage": "cross-env NODE_ENV=test nyc ava",
+    "build:lib": "cross-env NODE_ENV=production babel src -d lib --ignore src/demo",
+    "preversion": "npm run lint && npm run test",
+    "version": "auto-changelog -p && npm run build:lib && git add CHANGELOG.md lib",
+    "prepublishOnly": "npm run build:lib",
+    "postpublish": "npm run clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/faizanbhat/soundcloud-player.git"
+  },
+  "keywords": [
+    "react",
+    "media",
+    "player",
+    "audio",
+    "soundcloud",
+    "react-component"
+  ],
+  "author": "Faizan Bhat",
+  "peerDependencies": {
+    "react": ">=16.6.0"
+  },
+  "devDependencies": {
+    "@ava/babel": "^1.0.1",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/register": "^7.9.0",
+    "@hot-loader/react-dom": "^16.13.0",
+    "auto-changelog": "^2.0.0",
+    "autoprefixer": "^9.7.6",
+    "ava": "^3.6.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-istanbul": "^6.0.0",
+    "cross-env": "^7.0.2",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "nyc": "^15.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-hot-loader": "^4.12.20",
+    "rimraf": "^3.0.2",
+    "sinon": "^9.0.2",
+    "snazzy": "^8.0.0",
+    "standard": "^14.3.3"
+  },
+  "dependencies": {
+    "load-script": "^1.0.0",
+    "prop-types": "^15.7.2",
+    "react-fast-compare": "^3.0.1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "react-hot-loader/babel",
+      "@babel/plugin-proposal-class-properties"
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "ava": {
+    "files": [
+      "test/**/*",
+      "!test/helpers"
+    ],
+    "require": [
+      "@babel/register",
+      "@babel/polyfill"
+    ],
+    "babel": {
+      "compileAsTests": [
+        "test/helpers/*"
+      ]
+    }
+  },
+  "nyc": {
+    "all": true,
+    "include": "src",
+    "sourceMap": false,
+    "instrument": false,
+    "report-dir": "./coverage",
+    "temp-directory": "./coverage/.nyc_output",
+    "reporter": [
+      "text",
+      "html"
+    ]
+  },
+  "auto-changelog": {
+    "breakingPattern": "Breaking changes:"
+  }
+}
