@@ -9,7 +9,7 @@ export default class SoundCloud extends Component {
   static displayName = 'SoundCloud'
   callPlayer = callPlayer
   duration = null
-  currentTime = null
+  currentTime = 0
   fractionLoaded = null
   currentSound = null
 
