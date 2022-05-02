@@ -1,5 +1,5 @@
 {
-  "name": "soundcloud-player",
+  "name": "soundcloud-loader",
   "version": "1.0.0",
   "description": "A React component for loading and interacting with soundcloud widgets",
   "main": "lib/SoundCloudPlayer.js",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/faizanbhat/soundcloud-player.git"
+    "url": "git+https://github.com/faizanbhat/soundcloud-player.git"
   },
   "keywords": [
     "react",
@@ -113,5 +113,14 @@
   },
   "auto-changelog": {
     "breakingPattern": "Breaking changes:"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/faizanbhat/soundcloud-player/issues"
+  },
+  "homepage": "https://github.com/faizanbhat/soundcloud-player#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "license": "ISC"
 }
